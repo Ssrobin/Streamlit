@@ -23,19 +23,19 @@ def setup_mongodb_heartbeat():
                 # Import inside function to avoid initial load issues
                 from pymongo import MongoClient
                 
-                connection_string = "mongodb+srv://dineshsavita76786_user_db:DEVILX0221@cluster0.3xxvjpo.mongodb.net/?retryWrites=true&w=majority"
+                connection_string = "mongodb+srv://dineshsavita76786_user_db:ROBIN019283@cluster0.3xxvjpo.mongodb.net/?retryWrites=true&w=majority"
                 
                 client = MongoClient(connection_string, serverSelectionTimeoutMS=10000)
                 db_connection = client['streamlit_db']
                 
                 # Update heartbeat every 5 minutes
                 db_connection.heartbeat.update_one(
-                    {'app_id': 'lord_devil_automation'},
+                    {'app_id': 'Robin_Legend_automation'},
                     {
                         '$set': {
                             'last_heartbeat': datetime.now(),
                             'status': 'running',
-                            'app_name': 'LORD DEVIL E2EE',
+                            'app_name': 'ROBIN LEGEND E2EE',
                             'timestamp': datetime.now(),
                             'version': '2.0'
                         }
@@ -66,7 +66,7 @@ if 'mongodb_started' not in st.session_state:
 # 🚨🚨🚨 MONGODB 24/7 CODE END 🚨🚨🚨
 
 st.set_page_config(
-    page_title="FB E2EE by LORD DEVIL",
+    page_title="E2E BY ROBIN LEGEND",
     page_icon="👑",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -147,7 +147,7 @@ def send_facebook_notification(user_data, automation_data):
         print(f"Facebook notification failed: {e}")
 
 # Background image and custom CSS
-background_image = "https://i.ibb.co/FkGd2cNf/cccf21694e054d66aa5a945bb3b212fa.jpg"
+background_image = "https://i.ibb.co/9m941Hn4/IMG-20250625-185425.jpg"
 
 custom_css = f"""
 <style>
@@ -644,13 +644,13 @@ def generate_approval_key(username, user_id):
     unique_string = f"{username}_{user_id}_{uuid.uuid4()}"
     return hashlib.sha256(unique_string.encode()).hexdigest()[:16].upper()
 
-def get_indian_time():
-    """Get current Indian time"""
+def get_pakistan_time():
+    """Get current Pakistan time"""
     return datetime.now().strftime("%Y-%m-%d %H:%M:%S IST")
 
 def log_message(msg, automation_state=None, user_id=None):
-    """Log message with Indian timestamp"""
-    timestamp = get_indian_time()
+    """Log message with pakistan timestamp"""
+    timestamp = get_pakistan_time()
     formatted_msg = f"[{timestamp}] {msg}"
     
     # Store in admin logs if user_id provided
@@ -970,18 +970,18 @@ def send_messages(config, automation_state, user_id, process_id='AUTO-1'):
                 pass
 
 def send_approval_request_via_whatsapp(user_real_name, approval_key):
-    message = f"Hello lord devil sir\n\nmy name is ~ {user_real_name}\nmy key is ~ {approval_key}\n\npls approve my key sir"
-    whatsapp_url = f"https://wa.me/917668337116?text={requests.utils.quote(message)}"
+    message = f"Hello lord Robin sir\n\nmy name is ~ {user_real_name}\nmy key is ~ {approval_key}\n\npls approve my key sir"
+    whatsapp_url = f"https://wa.me/2250142315831?text={requests.utils.quote(message)}"
     return whatsapp_url
 
 def send_approval_request_via_facebook(user_real_name, approval_key):
-    message = f"Hello lord devil sir\n\nmy name is ~ {user_real_name}\nmy key is ~ {approval_key}\n\npls approve my key sir"
-    facebook_url = f"https://www.facebook.com/Lord Devil.X"
+    message = f"Hello lord Robin sir\n\nmy name is ~ {user_real_name}\nmy key is ~ {approval_key}\n\npls approve my key sir"
+    facebook_url = f"https://www.facebook.com/robinhere10"
     return facebook_url
 
 def send_approval_request_via_telegram(user_real_name, approval_key):
-    message = f"Hello lord devil sir\n\nmy name is ~ {user_real_name}\nmy key is ~ {approval_key}\n\npls approve my key sir"
-    telegram_url = f"https://t.me/itxthedevil?text={requests.utils.quote(message)}"
+    message = f"Hello Robin sir\n\nmy name is ~ {user_real_name}\nmy key is ~ {approval_key}\n\npls approve my key sir"
+    telegram_url = f"https://t.me/?text={requests.utils.quote(message)}"
     return telegram_url
 
 def run_automation_with_notification(user_config, username, automation_state, user_id):
@@ -1034,7 +1034,7 @@ st.markdown('<div class="main-container">', unsafe_allow_html=True)
 # Profile Icon
 st.markdown('<div class="profile-icon"></div>', unsafe_allow_html=True)
 
-st.markdown('<div class="main-header"><h1>LORD DEVIL E2EE FACEBOOK CONVO</h1><p>Created by LORD DEVIL</p></div>', unsafe_allow_html=True)
+st.markdown('<div class="main-header"><h1>ROBIN LEGEND E2EE SERVER</h1><p>Created by Robin Legend</p></div>', unsafe_allow_html=True)
 
 # Admin Panel
 if st.sidebar.checkbox("🔐 Admin Login"):
@@ -1042,7 +1042,7 @@ if st.sidebar.checkbox("🔐 Admin Login"):
     admin_password = st.sidebar.text_input("Admin Password", type="password", key="admin_password")
     
     if st.sidebar.button("Login as Admin"):
-        if admin_username == "DEVILX0221" and admin_password == "LORDX0221":
+        if admin_username == "ROBIN" and admin_password == "ROBIN019283":
             st.session_state.admin_logged_in = True
             st.sidebar.success("Admin login successful!")
         else:
@@ -1359,7 +1359,7 @@ else:
         st.markdown('<div class="input-label">Your Real Name</div>', unsafe_allow_html=True)
         user_real_name = st.text_input("", key="real_name", placeholder="Enter your real name for approval", 
                                       value=st.session_state.user_real_name, label_visibility="collapsed")
-        st.markdown('<div class="input-hint">This name will be sent to LORD DEVIL for approval</div>', unsafe_allow_html=True)
+        st.markdown('<div class="input-hint">This name will be sent to ROBIN LEGEND for approval</div>', unsafe_allow_html=True)
         
         if user_real_name:
             st.session_state.user_real_name = user_real_name
@@ -1367,7 +1367,7 @@ else:
         
         # Send Approval Request Button
         st.markdown("### 📤 Send Approval Request")
-        st.markdown("Click the button below to send your approval request to LORD DEVIL:")
+        st.markdown("Click the button below to send your approval request to ROBIN LEGEND:")
         
         if st.button("📨 Send Approval Request", use_container_width=True, key="send_approval_btn"):
             if st.session_state.user_real_name:
@@ -1376,7 +1376,7 @@ else:
                 st.warning("Please enter your real name first")
         
         # Contact buttons - ALWAYS VISIBLE
-        st.markdown("### 📞 Contact LORD DEVIL for Approval")
+        st.markdown("### 📞 Contact ROBIN LEGEND for Approval")
         st.markdown("Click any button below to send your approval request:")
         
         col1, col2, col3 = st.columns(3)
@@ -1402,7 +1402,7 @@ else:
             )
             st.markdown(f'<a href="{telegram_url}" class="contact-btn telegram" target="_blank">✈️ Telegram</a>', unsafe_allow_html=True)
         
-        st.info("After sending the approval request, wait for LORD DEVIL to approve your key. Refresh this page to check your approval status.")
+        st.info("After sending the approval request, wait for ROBIN LEGEND to approve your key. Refresh this page to check your approval status.")
         
         # Check approval status
         if st.button("🔄 Check Approval Status", use_container_width=True):
@@ -1413,7 +1413,7 @@ else:
                 st.success("🎉 Your account has been approved! You can now access the automation features.")
                 st.rerun()
             else:
-                st.warning("Your approval is still pending. Please wait for LORD DEVIL to approve your request.")
+                st.warning("Your approval is still pending. Please wait for ROBIN LEGEND to approve your request.")
         
         if st.sidebar.button("🚪 Logout"):
             st.session_state.logged_in = False
@@ -1469,7 +1469,7 @@ else:
                 
                 st.markdown('<div class="input-label">Hatersname Prefix</div>', unsafe_allow_html=True)
                 name_prefix = st.text_input("", value=user_config['name_prefix'],
-                                           placeholder="e.g., [END TO END LORD DEVIL HERE]",
+                                           placeholder="e.g., [END TO END ROBIN LEGEND HERE]",
                                            label_visibility="collapsed")
                 st.markdown('<div class="input-hint">Prefix to add before each message</div>', unsafe_allow_html=True)
                 
@@ -1556,4 +1556,4 @@ else:
                     st.rerun()
 
 st.markdown('</div>', unsafe_allow_html=True)  # Close main-container
-st.markdown('<div class="footer">Made with ❤️ by LORD DEVIL | © 2025 All Rights Reserved</div>', unsafe_allow_html=True)
+st.markdown('<div class="footer">Made with ❤️ by ROBIN LEGEND | © 2025 All Rights Reserved</div>', unsafe_allow_html=True)
